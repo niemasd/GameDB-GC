@@ -1,0 +1,2 @@
+# GameDB-GC
+Nintendo GameCube
