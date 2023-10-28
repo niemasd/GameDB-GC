@@ -16,7 +16,7 @@ jobs:
         wget https://github.com/niemasd/GameDB/raw/main/scripts/create_complete_data_json.py && python3 create_complete_data_json.py && \
         wget https://github.com/niemasd/GameDB/raw/main/scripts/create_titles_json.py && python3 create_titles_json.py && \
         wget https://github.com/niemasd/GameDB/raw/main/scripts/create_complete_data_tsv.py && python3 create_complete_data_tsv.py && \
-        wget https://github.com/niemasd/GameDB/raw/main/scripts/plot_dates_release.py && python3 plot_dates_release.py "Sony PlayStation (PSX)"
+        wget https://github.com/niemasd/GameDB/raw/main/scripts/plot_dates_release.py && python3 plot_dates_release.py "Nintendo GameCube (GC)"
     - name: Generate release tag
       id: tag
       run: |
@@ -32,7 +32,7 @@ jobs:
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         file: data.json
-        asset_name: PSX.data.json
+        asset_name: GC.data.json
         tag: ${{ steps.tag.outputs.release_tag }}
         overwrite: true
     - name: Upload titles JSON to release
@@ -40,7 +40,7 @@ jobs:
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         file: titles.json
-        asset_name: PSX.titles.json
+        asset_name: GC.titles.json
         tag: ${{ steps.tag.outputs.release_tag }}
         overwrite: true
     - name: Upload complete data TSV to release
@@ -48,7 +48,7 @@ jobs:
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         file: data.tsv
-        asset_name: PSX.data.tsv
+        asset_name: GC.data.tsv
         tag: ${{ steps.tag.outputs.release_tag }}
         overwrite: true
     - name: Upload release date distribution PDF to release
@@ -56,6 +56,6 @@ jobs:
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         file: release_dates.pdf
-        asset_name: PSX.release_dates.pdf
+        asset_name: GC.release_dates.pdf
         tag: ${{ steps.tag.outputs.release_tag }}
         overwrite: true
