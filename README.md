@@ -11,7 +11,7 @@ Nintendo GameCube (GC), part of [GameDB](https://github.com/niemasd/GameDB).
 
 ## Uniquely Identifying Games
 
-The game folders in [`games`](games) have the structure `DOL-XXXX-RRR`, where `XXXX` is the game code (also known as game ID), and `RRR` is the region code. The game code is stored directly within the disc and can be used to uniquely identify the game. I currently use the [`gciso` Python package](https://gciso.readthedocs.io/en/latest/#gciso.IsoFile.gameCode) to extract the game code (and other metadata) from a GameCube disc image. See the [GameID GameCube identification code](https://github.com/niemasd/GameID/blob/9cbbcf62b0123ede7ff6e835a0c7374f6d2ad6b8/GameID.py#L302-L340) for implementation details.
+The game folders in [`games`](games) have the structure `DOL-XXXX-RRR`, where `XXXX` is the game code (also known as game ID), and `RRR` is the region code. The game code is at offsets `0x0000` through `0x0003` (inclusive) of the disc header, and which can be used to uniquely identify the game.
 
 # Sources
 * [Redump](http://redump.org)
